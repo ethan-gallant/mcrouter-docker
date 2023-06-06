@@ -13,6 +13,7 @@ RUN apt-get update -y && \
 WORKDIR /workspace
 RUN git clone https://github.com/facebook/mcrouter.git
 WORKDIR /workspace/mcrouter
+RUN git checkout tags/v2023.05.22.00
 
 # Install mcrouter from source
 RUN mkdir -p /build
