@@ -17,8 +17,7 @@ RUN git checkout tags/v2023.05.22.00
 
 # Install mcrouter from source
 RUN mkdir -p /build
-RUN mcrouter/scripts/install_ubuntu_20.04.sh /build deps
-RUN mcrouter/scripts/install_ubuntu_20.04.sh /build mcrouter
+RUN mcrouter/scripts/install_ubuntu_20.04.sh /build
 
 # Get all the linked libraries for mcrouter and copy them to /lib
 RUN ldd /build/install/bin/mcrouter | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' /build/install/lib
